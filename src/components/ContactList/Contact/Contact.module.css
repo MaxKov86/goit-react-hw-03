@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5px;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 250px;
+}
+.button {
+  padding: 5px;
+  cursor: pointer;
+}
+.iconPerson {
+  width: 20px;
+  height: 20px;
+}
+.iconPhone {
+  width: 18px;
+  height: 18px;
+}
+.text {
+  display: flex;
+  justify-content: baseline;
+  gap: 8px;
+}
