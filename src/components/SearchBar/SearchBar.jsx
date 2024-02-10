@@ -3,7 +3,7 @@ import css from './SearchBar.module.css';
 
 export const SearchBar = ({ value, onChange }) => {
   const handleChange = e => {
-    let searchValue = e.target.value.trim();
+    let searchValue = e.target.value;
     onChange(searchValue);
   };
 
