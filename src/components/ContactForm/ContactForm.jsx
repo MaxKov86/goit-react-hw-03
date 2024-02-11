@@ -9,13 +9,14 @@ const ContactForm = ({ contacts, addContact }) => {
   const phoneNumberId = nanoid(9);
 
   const handleSubmit = (values, actions) => {
-    addContact(
+    addContact(() => {
       contacts.push({
         id: nanoid(9),
         name: values.name,
         number: values.phoneNumber,
-      })
-    );
+      });
+      return contacts;
+    });
     console.log(contacts);
     console.log(values);
     actions.resetForm();
