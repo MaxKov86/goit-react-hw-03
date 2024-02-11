@@ -1,4 +1,4 @@
-import css from './SearchBar.module.css';
+import css from './SearchBox.module.css';
 // import { Contact } from '../ContactList/Contact/Contact';
 
 export const SearchBar = ({ value, onChange }) => {
