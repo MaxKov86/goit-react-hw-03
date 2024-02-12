@@ -1,7 +1,7 @@
-import { Contact } from './Contact/Contact';
+import Contact from './Contact/Contact';
 import css from './ContactList.module.css';
 
-export const ContactList = ({ contacts, filterName, removeContact }) => {
+const ContactList = ({ contacts, filterName, removeContact }) => {
 	return (
 		<ul className={css.contactList}>
 			{contacts
@@ -21,3 +21,4 @@ export const ContactList = ({ contacts, filterName, removeContact }) => {
 		</ul>
 	);
 };
+export default ContactList;

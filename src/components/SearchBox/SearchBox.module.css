@@ -1,9 +1,12 @@
 .searchBar {
-  border-radius: 3px;
+	border-radius: 3px;
 
-  width: 250px;
-  margin-bottom: 20px;
-  padding: 3px;
+	width: 250px;
+	margin-bottom: 20px;
+	padding: 3px;
 }
 /* .searchBar:focus {
 } */
+.searchBar:focus {
+	outline-color: cyan;
+}

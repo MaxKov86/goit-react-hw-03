@@ -1,7 +1,7 @@
 import css from './SearchBox.module.css';
 // import { Contact } from '../ContactList/Contact/Contact';
 
-export const SearchBar = ({ value, onChange }) => {
+const SearchBar = ({ value, onChange }) => {
 	const handleChange = e => {
 		let searchValue = e.target.value;
 		onChange(searchValue);
@@ -20,3 +20,4 @@ export const SearchBar = ({ value, onChange }) => {
 		</>
 	);
 };
+export default SearchBar;

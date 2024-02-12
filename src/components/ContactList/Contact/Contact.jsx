@@ -2,7 +2,7 @@ import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
 import css from './Contact.module.css';
 
-export const Contact = ({ id, name, number, allContacts, deleteContact }) => {
+const Contact = ({ id, name, number, allContacts, deleteContact }) => {
 	const handleRemoveClick = e => {
 		deleteContact(() => {
 			return allContacts.filter(contact => contact.id !== e.target.id);
@@ -30,3 +30,4 @@ export const Contact = ({ id, name, number, allContacts, deleteContact }) => {
 		</>
 	);
 };
+export default Contact;
