@@ -17,21 +17,29 @@ const App = () => {
 			{ id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 		];
 	});
+
 	const [filterValue, setFilter] = useState('');
+
 	useEffect(() => {
 		window.localStorage.setItem('saved-contacts', JSON.stringify(contacts));
 	}, [contacts]);
+
+	const filteredContacts = contacts.filter(contact =>
+		contact.name.toLowerCase().includes(filterValue.toLowerCase())
+	);
+
+	const removeContact = (array, id) => {
+		setContacts(() => {
+			return array.filter(arr => arr.id !== id);
+		});
+	};
 
 	return (
 		<>
 			<h1>Phonebook</h1>
 			<ContactForm contacts={contacts} addContact={setContacts} />
 			<SearchBar value={filterValue} onChange={setFilter} />
-			<ContactList
-				contacts={contacts}
-				filterName={filterValue}
-				removeContact={setContacts}
-			/>
+			<ContactList contacts={filteredContacts} removeContact={removeContact} />
 		</>
 	);
 };

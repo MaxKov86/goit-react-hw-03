@@ -38,12 +38,13 @@ const ContactForm = ({ contacts, addContact }) => {
 			<Form className={css.form}>
 				<label htmlFor={nameId}>Name</label>
 				<Field
-					onFocus="true"
+					onFocus={focus}
 					className={css.fieldName}
 					type="text"
 					name="name"
 					id={nameId}
 				/>
+
 				<ErrorMessage className={css.error} name="name" as="span" />
 
 				<label className={css.labelNumber} htmlFor={phoneNumberId}>
@@ -55,6 +56,7 @@ const ContactForm = ({ contacts, addContact }) => {
 					name="phoneNumber"
 					id={phoneNumberId}
 				/>
+
 				<ErrorMessage className={css.error} name="phoneNumber" as="span" />
 
 				<button className={css.addBtn} type="submit">

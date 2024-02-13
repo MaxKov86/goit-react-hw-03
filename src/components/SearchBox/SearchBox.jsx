@@ -1,5 +1,5 @@
 import css from './SearchBox.module.css';
-// import { Contact } from '../ContactList/Contact/Contact';
+
 
 const SearchBar = ({ value, onChange }) => {
 	const handleChange = e => {
@@ -14,7 +14,6 @@ const SearchBar = ({ value, onChange }) => {
 				onChange={handleChange}
 				className={css.searchBar}
 				type="text"
-				// name="text"
 				value={value}
 			/>
 		</>
