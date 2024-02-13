@@ -28,9 +28,9 @@ const App = () => {
 		contact.name.toLowerCase().includes(filterValue.toLowerCase())
 	);
 
-	const removeContact = (array, id) => {
+	const removeContact = (info, id) => {
 		setContacts(() => {
-			return array.filter(arr => arr.id !== id);
+			return info.filter(item => item.id !== id);
 		});
 	};
 
