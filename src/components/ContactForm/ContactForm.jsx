@@ -8,23 +8,23 @@ const FeedbackSchema = Yup.object().shape({
 		.min(3, <span className={css.error}>Too Short!</span>)
 		.max(50, <span className={css.error}>Too Long!</span>)
 		.required(<span className={css.error}>Required</span>),
-	phoneNumber: Yup.string()
+	number: Yup.string()
 		.min(3, <span className={css.error}>Too Short!</span>)
 		.max(50, <span className={css.error}>Too Long!</span>)
 		.required(<span className={css.error}>Required</span>),
 });
 
-const initialValues = { name: '', phoneNumber: '' };
+const initialValues = { name: '', number: '' };
 
 const ContactForm = ({ contacts, addContact }) => {
 	const nameId = nanoid(9);
-	const phoneNumberId = nanoid(9);
+	const numberId = nanoid(9);
 
 	const handleSubmit = (values, actions) => {
 		addContact(() => {
 			return (contacts = [
 				...contacts,
-				{ id: nanoid(9), name: values.name, number: values.phoneNumber },
+				{ id: nanoid(9), name: values.name, number: values.number },
 			]);
 		});
 		actions.resetForm();
@@ -37,27 +37,21 @@ const ContactForm = ({ contacts, addContact }) => {
 		>
 			<Form className={css.form}>
 				<label htmlFor={nameId}>Name</label>
-				<Field
-					onFocus={focus}
-					className={css.fieldName}
-					type="text"
-					name="name"
-					id={nameId}
-				/>
+				<Field className={css.fieldName} type="text" name="name" id={nameId} />
 
 				<ErrorMessage className={css.error} name="name" as="span" />
 
-				<label className={css.labelNumber} htmlFor={phoneNumberId}>
+				<label className={css.labelNumber} htmlFor={numberId}>
 					Number
 				</label>
 				<Field
 					className={css.fieldNumber}
-					type="tel"
-					name="phoneNumber"
-					id={phoneNumberId}
+					type="text"
+					name="number"
+					id={numberId}
 				/>
 
-				<ErrorMessage className={css.error} name="phoneNumber" as="span" />
+				<ErrorMessage className={css.error} name="number" as="span" />
 
 				<button className={css.addBtn} type="submit">
 					Add contact
