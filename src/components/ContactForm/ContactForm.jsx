@@ -16,12 +16,12 @@ const FeedbackSchema = Yup.object().shape({
 
 const initialValues = { name: '', number: '' };
 
-const ContactForm = ({ addContact }) => {
+const ContactForm = ({ onAddContact }) => {
 	const nameId = nanoid(9);
 	const numberId = nanoid(9);
 
 	const handleSubmit = (values, actions) => {
-		addContact({ id: nanoid(9), name: values.name, number: values.number });
+		onAddContact({ id: nanoid(9), name: values.name, number: values.number });
 		actions.resetForm();
 	};
 	return (
