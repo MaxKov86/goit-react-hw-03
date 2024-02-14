@@ -1,6 +1,5 @@
 import css from './SearchBox.module.css';
 
-
 const SearchBar = ({ value, onChange }) => {
 	const handleChange = e => {
 		let searchValue = e.target.value;
@@ -15,6 +14,7 @@ const SearchBar = ({ value, onChange }) => {
 				className={css.searchBar}
 				type="text"
 				value={value}
+				placeholder="Search by name"
 			/>
 		</>
 	);

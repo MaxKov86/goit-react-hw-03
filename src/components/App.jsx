@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ContactList from './ContactList/ContactList';
-import SearchBar from './SearchBox/SearchBox';
+import SearchBox from './SearchBox/SearchBox';
 import ContactForm from './ContactForm/ContactForm';
 
 const App = () => {
@@ -28,18 +28,27 @@ const App = () => {
 		contact.name.toLowerCase().includes(filterValue.toLowerCase())
 	);
 
-	const removeContact = (info, id) => {
+	const addContact = newContact => {
 		setContacts(() => {
-			return info.filter(item => item.id !== id);
+			return [...contacts, newContact];
+		});
+	};
+
+	const removeContact = id => {
+		setContacts(() => {
+			return contacts.filter(contact => contact.id !== id);
 		});
 	};
 
 	return (
 		<>
 			<h1>Phonebook</h1>
-			<ContactForm contacts={contacts} addContact={setContacts} />
-			<SearchBar value={filterValue} onChange={setFilter} />
-			<ContactList contacts={filteredContacts} removeContact={removeContact} />
+			<ContactForm contacts={contacts} onAddContact={addContact} />
+			<SearchBox value={filterValue} onChange={setFilter} />
+			<ContactList
+				contacts={filteredContacts}
+				onRemoveContact={removeContact}
+			/>
 		</>
 	);
 };

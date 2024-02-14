@@ -2,12 +2,12 @@ import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
 import css from './Contact.module.css';
 
-const Contact = ({ id, name, number, allContacts, deleteContact }) => {
+const Contact = ({ id, name, number, deleteContact }) => {
 	const handleRemoveClick = e => {
 		if (e.target.nodeName !== 'BUTTON') {
 			return;
 		}
-		deleteContact(allContacts, e.currentTarget.id);
+		deleteContact(e.currentTarget.id);
 	};
 	return (
 		<>

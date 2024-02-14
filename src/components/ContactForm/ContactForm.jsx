@@ -16,17 +16,12 @@ const FeedbackSchema = Yup.object().shape({
 
 const initialValues = { name: '', number: '' };
 
-const ContactForm = ({ contacts, addContact }) => {
+const ContactForm = ({ addContact }) => {
 	const nameId = nanoid(9);
 	const numberId = nanoid(9);
 
 	const handleSubmit = (values, actions) => {
-		addContact(() => {
-			return (contacts = [
-				...contacts,
-				{ id: nanoid(9), name: values.name, number: values.number },
-			]);
-		});
+		addContact({ id: nanoid(9), name: values.name, number: values.number });
 		actions.resetForm();
 	};
 	return (
@@ -37,7 +32,13 @@ const ContactForm = ({ contacts, addContact }) => {
 		>
 			<Form className={css.form}>
 				<label htmlFor={nameId}>Name</label>
-				<Field className={css.fieldName} type="text" name="name" id={nameId} />
+				<Field
+					className={css.fieldName}
+					type="text"
+					name="name"
+					id={nameId}
+					placeholder="Antony Robins"
+				/>
 
 				<ErrorMessage className={css.error} name="name" as="span" />
 
@@ -49,6 +50,7 @@ const ContactForm = ({ contacts, addContact }) => {
 					type="text"
 					name="number"
 					id={numberId}
+					placeholder="111-11-11"
 				/>
 
 				<ErrorMessage className={css.error} name="number" as="span" />
