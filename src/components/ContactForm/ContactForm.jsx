@@ -10,7 +10,7 @@ const FeedbackSchema = Yup.object().shape({
 		.required(<span className={css.error}>Required</span>),
 	number: Yup.string()
 		.min(3, <span className={css.error}>Too Short!</span>)
-		.max(50, <span className={css.error}>Too Long!</span>)
+		.max(9, <span className={css.error}>Too Long!</span>)
 		.required(<span className={css.error}>Required</span>),
 });
 
